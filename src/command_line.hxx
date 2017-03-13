@@ -3,12 +3,17 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
+/*
+read a command-line
+*/
 class CommandLine {
     public:
         CommandLine(istream& in);
-        string getCommand() const;
-        vector<string> getArgVector() const;
-        string getArgVector(int i) const;
+        const string& getCommand() const;
+        const vector<string>& getArgVector() const;
         bool noAmpersand() const;
+        bool isValid() const;
+    private:
+        vector<string> args;
+        bool noAmpersandBool;
 };
